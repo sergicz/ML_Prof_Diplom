@@ -1,0 +1,1 @@
+https://bx.itex.ru/rest/16/[apikey]/voximplant.statistic.get?start=
