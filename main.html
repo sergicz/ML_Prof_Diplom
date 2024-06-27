@@ -1,0 +1,61 @@
+<!doctype html>
+<style>
+form {
+    margin: auto;
+    width: 35%;
+}    
+
+.result {
+    margin: auto;
+    width: 35%;
+    border: 1px solid #ccc;
+}
+</style>
+
+<head>
+    <title>Прогноз характеристик сварного шва</title>
+</head>
+
+<form action="{{url_for('main')}}" method="POST">
+    <H2>Предсказание глубины и ширины сварного шва</H2>
+    <fieldset>
+        <legend>Введите переменные</legend>
+        <table>
+        <tr>
+            <td>IW</td>
+            <td><input name = "iw" type="float" required></td>
+        </tr>
+        <tr>
+            <td>IF</td>
+            <td><input name = "if" type="float" required></td>
+        </tr>
+        <tr>
+            <td>VW</td>
+            <td><input name = "vw" type="float" required></td>
+        </tr>
+        <tr>
+            <td>FP</td>
+            <td><input name = "fp" type="float" required></td>
+        </tr>
+        </table>
+        <br>
+        <input type="submit" value="Предсказать" align = "center"/>
+    </fieldset>
+</form>
+
+<div class="result" align="center">
+    {% if result %}
+        <H2>
+        <table>
+            <tr>
+                <td>Ширина (Width)</td>    
+                <td>{{result[0]}}</td>
+            </tr>
+            <tr>
+                <td>Глубина (Depth)</td>    
+                <td>{{result[1]}}</td>
+            </tr>
+        </table>
+        </H2>
+    {% endif %}
+</div>
